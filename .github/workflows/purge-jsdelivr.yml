@@ -1,0 +1,13 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache for jquery file
+        run: |
+          curl -X GET "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/jquery-3.7.1.min.js"
